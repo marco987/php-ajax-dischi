@@ -1,5 +1,7 @@
 <?php
 
+header('Content-type: application/json');
+
 $albums = [
   [
     "titolo" => "Meddle",
@@ -25,6 +27,8 @@ $albums = [
     "titolo" => "The division bell",
     "anno" => "1974"
   ]
-]
+];
+
+echo json_encode($albums);
 
 ?>

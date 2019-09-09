@@ -24,8 +24,11 @@
     <link rel="stylesheet" href="style.css">
 
     <?php
-    // Collego il file api.php che contiene l'array
-    include "api.php";
+    // (1) = Modo 1 PHP
+    // (2) = Modo 2 ajax
+
+    // // (1) Collego il file api.php che contiene l'array
+    // include "api.php";
 
     ?>
   </head>
@@ -39,20 +42,20 @@
 
         <?php
 
-        // Ciclo dentro l'array
-        foreach ($albums as $album) {
-          // Salvo due variabili per titolo e anno
-          $titolo = $album[titolo];
-          $anno = $album[anno];
-          // Stampo una specie di "template" compilandolo
-          // con le variabili appena create
-          echo "<div class='album'>
-            <span><img src='img/$titolo.png' alt=''></span>
-            <h4>$titolo</h4>
-            <p>Pink Floyd</p>
-            <h5>$anno</h5>
-          </div>";
-        }
+        // // (1) Ciclo dentro l'array
+        // foreach ($albums as $album) {
+        //   // Salvo due variabili per titolo e anno
+        //   $titolo = $album[titolo];
+        //   $anno = $album[anno];
+        //   // Stampo una specie di "template" compilandolo
+        //   // con le variabili appena create
+        //   echo "<div class='album'>
+        //     <span><img src='img/$titolo.png' alt=''></span>
+        //     <h4>$titolo</h4>
+        //     <p>Pink Floyd</p>
+        //     <h5>$anno</h5>
+        //   </div>";
+        // }
 
 
 

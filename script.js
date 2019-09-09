@@ -10,11 +10,37 @@
 
 $(document).ready(function(){
 
+// (2) Modo 2 ajax
 
+var source   = document.getElementById("item-template").innerHTML;
+var template = Handlebars.compile(source);
 
+function getAlbum() {
+  $.ajax({
+    url: "api.php",
+    method: "GET",
+    success: function(data){
+      printAlbum(data);
+    },
+    error: function(){
+      alert("Errore");
+    }
+  });
+}
 
+function printAlbum(data) {
+  for (var i = 0; i < data.length; i++) {
+    var album = data[i];
+    var context = {
+      titolo: album.titolo,
+      anno: album.anno
+    };
+    var html    = template(context);
+    $("main").append(html);
+  }
+}
 
-
+getAlbum();
 
 
 
