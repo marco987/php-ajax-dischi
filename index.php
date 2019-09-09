@@ -11,52 +11,54 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js" charset="utf-8"></script>
     <!-- TEMPLATE: MESSAGE MENU -->
     <script id="item-template" type="text/x-handlebars-template">
+
+      <div class="album">
+        <span><img src="img/{{titolo}}.png" alt=""></span>
+        <h4>{{titolo}}</h4>
+        <p>Pink Floyd</p>
+        <h5>{{anno}}</h5>
+      </div>
+
     </script>
     <!-- CSS: MY STYLE -->
     <link rel="stylesheet" href="style.css">
+
+    <?php
+    // Collego il file api.php che contiene l'array
+    include "api.php";
+
+    ?>
   </head>
+
   <body>
     <div class="container">
       <header>
         <img src="img/logo.png" alt="">
       </header>
       <main>
-        <div class="album">
-          <span><img src="img/album.png" alt=""></span>
-          <h4>The dark side of the moon</h4>
-          <p>Pink Floyd</p>
-          <h5>1973</h5>
-        </div>
-        <div class="album">
-          <span><img src="img/album.png" alt=""></span>
-          <h4>The dark side of the moon</h4>
-          <p>Pink Floyd</p>
-          <h5>1973</h5>
-        </div>
-        <div class="album">
-          <span><img src="img/album.png" alt=""></span>
-          <h4>The dark side of the moon</h4>
-          <p>Pink Floyd</p>
-          <h5>1973</h5>
-        </div>
-        <div class="album">
-          <span><img src="img/album.png" alt=""></span>
-          <h4>The dark side of the moon</h4>
-          <p>Pink Floyd</p>
-          <h5>1973</h5>
-        </div>
-        <div class="album">
-          <span><img src="img/album.png" alt=""></span>
-          <h4>The dark side of the moon</h4>
-          <p>Pink Floyd</p>
-          <h5>1973</h5>
-        </div>
-        <div class="album">
-          <span><img src="img/album.png" alt=""></span>
-          <h4>The dark side of the moon</h4>
-          <p>Pink Floyd</p>
-          <h5>1973</h5>
-        </div>
+
+        <?php
+
+        // Ciclo dentro l'array
+        foreach ($albums as $album) {
+          // Salvo due variabili per titolo e anno
+          $titolo = $album[titolo];
+          $anno = $album[anno];
+          // Stampo una specie di "template" compilandolo
+          // con le variabili appena create
+          echo "<div class='album'>
+            <span><img src='img/$titolo.png' alt=''></span>
+            <h4>$titolo</h4>
+            <p>Pink Floyd</p>
+            <h5>$anno</h5>
+          </div>";
+        }
+
+
+
+        ?>
+
+
       </main>
     </div>
 
